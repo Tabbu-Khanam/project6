@@ -11,8 +11,10 @@ startButton.addEventListener('click', (e) => {
 let replayButton = e.target;
 if(replayButton.textContent = "Replay" && missed >= 5) {
  location.reload();
+}else if (replayButton.textContent = "Replay" && missed >= 1) {
+  location.reload();
 } else {
- overlay.style.display = 'none';
+  overlay.style.display = 'none';
 }
 
  });
