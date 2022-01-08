@@ -8,7 +8,13 @@ let missed = 0;
 const overlay = document.querySelector("#overlay");
 
 startButton.addEventListener('click', (e) => {
-  myFunction();
+let replayButton = e.target;
+if(replayButton.textContent = "Replay" && missed >= 5) {
+ location.reload();
+} else {
+ overlay.style.display = 'none';
+}
+
  });
 
  
@@ -83,18 +89,7 @@ function checkWin() {
     startButton.textContent = 'Replay';
   }
 }
-function myFunction() {
-  missed = 0;
-  function reset() {
- for(let i = 0; i < hearts.length; i++) {
-    hearts[i].src = 'images/liveHeart.png';
- }
-  }
- 
-   
-   reset();
-  overlay.style.display = "none";
-}
+
 let getRandom = getRandomPhraseAarry(phrases);
 addPhraseToDisplay(getRandom);
 
