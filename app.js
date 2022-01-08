@@ -8,14 +8,7 @@ let missed = 0;
 const overlay = document.querySelector("#overlay");
 
 startButton.addEventListener('click', (e) => {
-let replayButton = e.target;
-if(replayButton.textContent = "Replay" && missed >= 5) {
- location.reload();
-}else if (replayButton.textContent = "Replay" && missed >= 1) {
-  location.reload();
-} else {
-  overlay.style.display = 'none';
-}
+myFunction();
 
  });
 
@@ -91,9 +84,30 @@ function checkWin() {
     startButton.textContent = 'Replay';
   }
 }
-
-let getRandom = getRandomPhraseAarry(phrases);
+function myFunction() {
+  let getRandom = getRandomPhraseAarry(phrases);
 addPhraseToDisplay(getRandom);
+ missed = 0;
+function reset() {
+ for(let i = 0; i < hearts.length; i++) {
+   hearts[i].src = 'images/liveHeart.png';
+ }
+
+
+let buttons = document.querySelectorAll('button');
+ for( let i = 0; i< buttons.length; i++) {
+   buttons[i].className = "";
+   buttons[i].disabled = '';
+ }
+
+let ul = document.querySelector('#phrase ul');
+ul.innerHTML = '';
+addPhraseToDisplay(getRandom);
+}
+reset();
+ overlay.style.display = 'none';
+}
+
 
 
 
